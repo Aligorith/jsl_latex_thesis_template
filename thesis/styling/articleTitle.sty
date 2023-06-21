@@ -1,0 +1,47 @@
+\def\fileversion{0.1}
+\def\filedate{2013/10/05}
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{articleTitle}[2013/10/05\space\fileversion\space\filedate\space
+Title Header Style]
+\RequirePackage{ifthen}
+
+
+\newboolean{sanserif}
+\setboolean{sanserif}{false}
+
+\DeclareOption{sanserif}{%
+	\setboolean{sanserif}{True}}
+\ProcessOptions
+
+\newcommand*{\subtitle}[1]{\gdef\@subtitle{#1}}
+\newcommand*{\@subtitle}{}%
+
+\newcommand*{\authoremail}[1]{\gdef\@authoremail{#1}}
+\newcommand*{\@authoremail}{}%
+
+% A special command to 
+\renewcommand{\maketitle}{%
+	{%
+
+		\begin{center}
+			%% Title are in whatever font has been configured 
+			\ifthenelse{\boolean{sanserif}}{\sffamily}{\rmfamily}
+			{\LARGE \@title\par}
+			{\Large \textit{\@subtitle}\par}
+
+			%% Author name and other info is always in "normal" roman fonts
+			\vskip 1.5em %\vspace{3mm}
+			\rmfamily
+
+			{%
+				\large 
+				\@author \par
+				\vspace{0.5mm}
+				\normalsize
+				\texttt{\@authoremail} \par
+			}
+			\vskip 1.3em %\vspace{2mm}
+			{\normalsize \@date}
+		\end{center}
+	}
+}

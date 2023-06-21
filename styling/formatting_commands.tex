@@ -1,0 +1,117 @@
+%% Standard formatting commands used for all the Latex files in this repo
+
+% NOTE: The "color" import must be defined before "\usepackage{caption}" to have effect... therefore, this is actually a duplicate
+\usepackage[usenames,dvipsnames]{color} 
+
+%\usepackage{color,soul} % for tagging "unfinished" text with \hl{...}
+\usepackage{soul} % for tagging "unfinished" text with \hl{...}
+\usepackage{soulutf8}   % utf8 support for soul
+
+
+
+% Mark all broken refs/citations
+% TODO: what about empty?
+\usepackage{etoolbox}
+\makeatletter
+  \patchcmd{\@setref}{\bfseries ??}{\colorbox{red}{?reference?}}{}{}
+  \patchcmd{\@citex}{\bfseries ?}{\colorbox{red}{?citation?}}{}{}
+\makeatother
+
+
+%% Commands
+% Compliment to \emph{}, so that we don't have to specify this as bold
+\newcommand{\strong}[1]{\textbf{#1}}
+
+% WIP/Unfinished work indicator
+\newcommand{\unfinishedTxt}[1]{\colorbox{yellow}{...#1...}}
+
+% text needing attention/checking
+\newcommand{\queriedTxt}[1]{\colorbox{Apricot}{#1 \textsuperscript{?}}}
+
+% Hick-Hyman Reference
+\newcommand{\citeHickHymanLaw}{\cite{HickHyman:Hick52:Rate}\cite{HickHyman:Hyman53:Stimulus}}
+
+% Highlight technique/condition label
+\newcommand{\hlTechnique}[1]{\texttt{#1}}
+
+
+% Participant ID references
+\newcommand{\pid}[1]{\textbf{\textit{#1}}}
+
+% Participant quotes
+%  1) Use outside brackets (for compact stuff)
+\newcommand{\pquote}[2]{\enquote{\textit{#1}} (\pid{#2})}
+%  2) Use inside brackets or for long standalone lines
+\newcommand{\pquotelong}[2]{\enquote{\textit{#1}} -- \pid{#2}}
+
+% Experiment factor label
+% XXX: use different font?
+\newcommand{\expFactor}[1]{\textit{#1}}
+
+% Dependent Measure
+\newcommand{\dependentMeasure}[1]{\textit{#1}}
+
+% Hypothesis definition
+\newcommand{\hypothesisDefinition}[2]{\strong{#1}: \emph{#2}}
+
+% Hypothesis reference
+\newcommand{\hypothesisReference}[1]{\strong{H\ref{#1}}} 
+
+
+
+% Fancy decorated quote environment
+% TODO: The quotes should be on the sides, not inline
+% \newcommand*\openquote{\makebox(25,-22){\scalebox{5}{\textcolor{gray75}\lQ}}}
+% \newcommand*\closequote{\makebox(25,-22){\scalebox{5}{\textcolor{gray75}\rQ}}}
+
+% \makeatletter
+% \newif\if@right
+% \def\fancyquote{\@righttrue\fancyquote@i}
+% \def\fancyquote@i{\begin{quote}\itshape\openquote}
+% \def\endfancyquote{%
+%   \if@right\hfill\fi\closequote\end{quote}}
+% \@namedef{fancyquote*}{\@rightfalse\fancyquote@i}
+% \@namedef{endfancyquote*}{\endfancyquote}
+% \makeatother
+
+\usepackage{tikz}
+
+\newcommand*\quotefont{\fontfamily{ptm}} % XXX: These curlies are actually quite ugly...
+\newcommand*\quotesize{65} % if quote size changes, need a way to make shifts relative
+
+% Make commands for the quotes
+\newcommand*{\openquote}
+   {\tikz[remember picture,overlay,xshift=-4ex,yshift=-2.5ex]
+   \node (OQ) {\quotefont\fontsize{\quotesize}{\quotesize}\selectfont{\textcolor{gray75}{``}}};\kern0pt}
+
+\newcommand*{\closequote}[1]
+  {\tikz[remember picture,overlay,xshift=5ex,yshift={#1}]
+   \node (CQ) {\quotefont\fontsize{\quotesize}{\quotesize}\selectfont{\textcolor{gray75}{''}}};}
+
+\newenvironment{fancyquote}%
+{
+   {\def\shadequoteauthor{}\def\yshift{-2ex}\def\quotefill{\hfill}}
+\begin{quote}\itshape\openquote}
+%{\shadequoteauthor\quotefill\closequote{\yshift}\end{quote}}
+{\end{quote}}
+
+
+
+% Theorem environments for design insights/research questions
+\usepackage{framed} % or, "mdframed"
+\usepackage[framed]{ntheorem}
+
+% Put the heading in a separate line to everything else
+\theoremstyle{break}
+
+\newframedtheorem{definition}{Definition}
+\newframedtheorem{designinsight}{Design Insight}
+\newframedtheorem{researchQ}{Research Question}
+\newframedtheorem{researchQFuture}{Research Question (Future)}
+\newframedtheorem{principle}{Key Principle}
+
+% Hypothesis definitions should reset per chapter
+%\newframedtheorem{hypothesis}{H}[section]
+\newframedtheorem{hypothesis}{H}[chapter]
+%\newframedtheorem{hypothesis}{H}
+

@@ -1,0 +1,174 @@
+\documentclass[11pt, oneside, a4paper]{book}
+
+%\usepackage{./styling/articleTitle}
+\usepackage{./styling/fancyheadings}
+
+% allow input the "easy" way
+\usepackage[utf8]{inputenc}
+% nested imports
+\usepackage{import} 
+
+% For accessing title info
+\usepackage{titling}
+
+
+% Standard Imports
+\input{../styling/formatting_style}
+\input{../styling/formatting_commands}
+
+% For appendices
+\usepackage{pdfpages}
+
+
+% Title Info
+\title{Example Thesis Template Title}
+
+\author{Joshua Leung}
+%\authoremail{joshua.leung@canterbury.ac.nz}
+
+\date{\today}
+%\date{2017}
+
+
+\begin{document}
+\frontmatter % Use roman page numbering style (i, ii, iii, iv...) for the pre-content pages
+\pagestyle{plain} % Default to the plain heading style until the thesis style is called for the body content
+%\clearpage
+
+% TITLEPAGE
+\input{thesis/titlepage}
+
+% ABSTRACT
+\cleardoublepage\phantomsection  % XXX: try to get the hyperref bookmarks links working
+\addcontentsline{toc}{chapter}{Abstract} % Add the abstract to the table of contents
+\input{thesis/abstract}
+
+\newpage  % XXX: This resets the "i" to "1"; BUT, we want these things on different pages, so this will have to do....
+
+% ACKNOWLEDGEMENTS
+\cleardoublepage\phantomsection  % XXX: try to get the hyperref bookmarks links working
+\addcontentsline{toc}{chapter}{Acknowledgements} % Add the acknowledgements to the table of contents
+%\input{thesis/acknowledgements}
+\input{thesis/acknowledgements-draft2}
+
+\newpage 
+
+% ETHICS
+\cleardoublepage\phantomsection  % XXX: try to get the hyperref bookmarks links working
+\addcontentsline{toc}{chapter}{Research Ethics}
+\input{thesis/ethics}
+
+\newpage 
+
+
+% TABLE OF CONTENTS
+%\clearpage
+\cleardoublepage\phantomsection  % XXX: try to get the hyperref bookmarks links working
+
+\addcontentsline{toc}{chapter}{Table of Contents}
+\tableofcontents
+
+\newpage
+
+% Main Matter Begins.......... 
+\mainmatter % Begin numeric (1,2,3...) page numbering
+\pagenumbering{arabic}% Arabic page numbers (and reset to 1)
+\pagestyle{fancy}  % Use the thesis contents header style now
+
+% Headings format
+\newcommand{\myheadfont}{%
+  \fontfamily{ppl}\fontseries{bi}\fontsize{9}{11}\selectfont}
+
+\lhead[\myheadfont \thepage]{\myheadfont \rightmark} 
+\rhead[\myheadfont \leftmark]{\myheadfont \thepage} 
+\cfoot[\thepage]{\thepage}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter{Introduction} \label{ch:ThesisIntro} %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{thesis/thesis_intro}
+
+\part{Foundations} %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\label{Part1:Foundations}
+\addtocontents{toc}{\nobreak\smallskip\hrule}
+
+\chapter{Human Factors for X} \label{ch:HumanFactors}
+\subimport{../foundations/}{human_factors_chapter}
+
+\chapter{Previous Studies of X} \label{ch:HighlightingStudies}
+\subimport{../foundations/}{hl_studies_chapter}
+
+\chapter{A New Framework} \label{ch:DesignFramework}
+\subimport{../foundations/}{design_framework_chapter}
+
+\chapter{Summary of Foundations} \label{ch:FoundationsSummary}
+\subimport{../foundations/}{foundations_summary_chapter}
+
+\part{Methods, Analyses, and Studies} %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\label{Part2:MethodsStudies}
+\addtocontents{toc}{\nobreak\smallskip\hrule}
+
+\chapter{A Method for Doing X} \label{ch:MethodOverview}
+\input{thesis/method_overview}
+
+\chapter{Study 1 -- Testing the Basics} \label{ch:Exp1}
+\graphicspath{{../exp1_latex/exp1/}}
+\subimport{../exp1_latex/}{exp1_chapter.tex}
+
+
+\chapter{Study 2 -- Something More Applied} \label{ch:Exp2}
+\graphicspath{{../exp2_latex/exp2/}}
+\subimport{../exp2_latex/}{exp2_chapter.tex}
+
+
+\part{Discussion and Conclusion} %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\label{Part3:Discussion}
+\addtocontents{toc}{\nobreak\smallskip\hrule}
+
+\chapter{Discussion and Directions for Future Work} \label{ch:ThesisDiscussion}
+\input{thesis/thesis_discussion}
+
+\chapter{Conclusion} \label{ch:ThesisConclusions}
+\input{thesis/thesis_conclusions}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newpage
+
+\bibliographystyle{./styling/my_plain}
+\bibliography{../bibtex/hci_general,../bibtex/highlighting}
+\addcontentsline{toc}{part}{Bibliography}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\appendix % Cue to tell LaTeX that the following "chapters" are Appendices
+
+\cleardoublepage\phantomsection  % XXX: try to get the hyperref bookmarks links working
+
+\part*{Appendices}
+\addcontentsline{toc}{part}{Appendices}  % XXX: This STILL isn't putting everything on the right levels!
+\addtocontents{toc}{\nobreak\smallskip\hrule}
+
+
+% XXX: Rename to "Supplementary Materials"  --> Methods, Results (Subjective Exp)
+\chapter{Pilot Studies} \label{apx:PilotStudies}
+\graphicspath{{../pilot_studies/}}
+\input{../pilot_studies/pilot_studies_section}
+
+
+\chapter{Study 1 -- Consent Forms and Information Sheets} \label{apx:Exp1:InformedConsentForms}
+\input{thesis/appendix_study1}
+
+
+\chapter{Study 2 -- Consent Forms and Information Sheets} \label{apx:Exp2:InformedConsentForms}
+\input{thesis/appendix_study2}
+
+%\chapter{Source Code for Experiment Software} \label{appendix:SourceCode}
+%\input{thesis/appendix_source_code}
+
+%\newpage
+%\input{thesis/quote_page}
+
+\end{document}

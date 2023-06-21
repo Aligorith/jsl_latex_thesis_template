@@ -1,0 +1,155 @@
+%% Formatting tweaks on top of the defaults
+
+%% Utilities for bumping up fontsize when needed
+\usepackage{relsize}
+
+%% Font Set
+% --- Times ---
+%\usepackage{times}
+%\usepackage{mathptm}
+
+%\usepackage{mathptmx}
+%\usepackage[scaled=.90]{helvet}
+%\usepackage[scaled=.90]{courier}
+
+% --- New PX (Palatino Improved) ---
+%\usepackage{newpxtext,newpxmath}
+
+% --- Palatino ---
+\usepackage{mathpazo}
+
+%\usepackage{palatino}
+%\usepackage{mathpazo,mathabx}
+
+% Hack to make the left-quotes of Palatino nicer/easier to read
+% http://tex.stackexchange.com/a/326304
+%\def\lQ{\scalebox{-1}[1]{''}}
+
+
+% For easier use of Times quotes
+\newcommand*{\qfont}{\fontfamily{ptm}\selectfont}
+%\def\lQ{``}
+%\def\rQ{''}
+\def\lQ{{\qfont\larger``}}
+\def\rQ{{\qfont\larger''}}
+
+\def\lq{{\qfont\larger`}}
+\def\rq{{\qfont\larger'}}
+
+% enquote - Redefine of the csquotes thing so that we get nice quotes (without replacing the font everywhere)
+\newcommand{\enquote}[1]{\lQ#1\rQ}
+\newcommand{\squote}[1]{\lq#1\rq}
+
+
+%% Normal Math Symbols
+\usepackage{amssymb,amsmath}
+\usepackage{amsfonts} % for the \checkmark command 
+
+
+%% Includes for useful formatting packages
+\usepackage{a4wide}
+
+%\usepackage{hyperref}
+\usepackage[pdftex,pdfpagelabels,bookmarks,hyperindex,hyperfigures]{hyperref}
+\usepackage{url}
+
+\usepackage{tipa}
+\usepackage{float}
+\usepackage{subfigure}
+\usepackage{footnote}
+\usepackage{wrapfig}
+
+\usepackage{comment}
+\usepackage{enumitem}
+\usepackage{fancyvrb}
+
+%\usepackage[normalem]{ulem} % underlines
+
+\usepackage{titlesec}
+\usepackage[usenames,dvipsnames]{color}  % XXX: duplicate, but we need to be able to define color here...
+
+
+\usepackage{placeins}
+
+
+%% Styling options 
+% Caption styling - Make them clearer by not using same font as the body text
+\usepackage[font={small,it}, labelfont={small,bf}, skip=2pt]{caption}
+
+
+% paragraph spacing...
+% - no indent, and leave an actual space after each para
+\usepackage{parskip}
+
+% line spacing
+%\usepackage{setspace}
+%\onehalfspacing
+
+
+
+% Options for controlling hyphenation...
+%\usepackage[none]{hyphenat}  %% Disabled completely (I'm tempted to turn this on)
+\usepackage{hyphenat}
+
+
+% prevent Latex from leaving a single line near the start/bottom of pages
+% XXX: These are not too successful atm... latex still stuffs up majorly
+
+%\widowpenalties 1 10000
+%\raggedbottom
+\widowpenalties 1 5000
+%\displaywidowpenalty=500
+
+
+
+% line under each section heading
+\usepackage{sectsty}
+\sectionfont{ \sectionrule{0pt}{0pt}{-5pt}{0.8pt} }
+
+% no space after each section heading
+
+% Custom chapter formatting
+\definecolor{gray75}{gray}{0.75}
+\newcommand{\hsp}{\hspace{25pt}}
+%\titleformat{\chapter}[hang]{\Huge\bfseries}{\thechapter\textcolor{gray75}{)}\hsp}{0pt}{\Huge\bfseries}
+\titleformat{\chapter}[hang]{\huge\bfseries\nohyphens}{\hspace{-2em}\fontsize{70}{60}\selectfont\textcolor{gray75}\thechapter\hsp}{0pt}{\huge\bfseries\nohyphens}
+
+% - Chapter formatting: Also reduce whitespace
+\titlespacing*{\chapter}{0pt}{-50pt}{40pt}
+
+
+
+% 4-levels deep nesting
+\makeatletter
+\renewcommand\paragraph{%
+   \@startsection{paragraph}{4}{0mm}%
+      {-\baselineskip}%
+      {.5\baselineskip}%
+      {\normalfont\normalsize\bfseries}}
+      
+\renewcommand\subparagraph{%
+   \@startsection{subparagraph}{5}{0mm}%
+      {-\baselineskip}%
+      {.5\baselineskip}%
+      {\normalfont\normalsize\bfseries}}
+\makeatother
+
+\setcounter{secnumdepth}{5}
+\setcounter{tocdepth}{5}
+
+
+% Don't show the boxes around links
+\hypersetup{colorlinks=false}
+%\hypersetup{bookmarks=true}
+
+% Ensure math/math-like stuff in headings/bold-regions is also bold...
+\makeatletter
+\g@addto@macro\bfseries{\boldmath}
+\makeatother
+
+% Prevent pagebreak before each list (especially between the paragraph introducing the list)
+% https://tex.stackexchange.com/a/46795
+\makeatletter
+\@beginparpenalty=10000
+\makeatother
+
