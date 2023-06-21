@@ -4,6 +4,9 @@ jsl_thesis_template
 LaTeX / pdfLaTeX template extracted from the styling code used for Dr Joshua Leung's
 PhD Thesis at the University of Canterbury (2017).
 
+Example Output:
+
+![Example of JSL's Thesis Titlepage](diagrams/example_images/titlepage.png)
 
 
 ## History
@@ -99,6 +102,7 @@ conditions, etc.). A bunch defined for such purposes have been left over,
 and can be removed or adapted as needed.
 
 
+
 ## License
 
 The code here is released "as-is" in the hopes that it might be useful + helpful
@@ -109,4 +113,6 @@ https://github.com/Aligorith/jsl_latex_thesis_template
 
 
 -- Dr Joshua Leung
+   (aligorith@gmail.com | joshua.leung@canterbury.ac.nz)
+   
    June 2023
