@@ -91,17 +91,27 @@
 \label{Part1:Foundations}
 \addtocontents{toc}{\nobreak\smallskip\hrule}
 
+
+% NOTE: These chapters/sections will look for figures in the main/root-level
+%       "diagrams/" folder by default. You can point it to use one inside the
+%       "foundations" folder instead by uncommenting the \graphicspath import
+%       statement below:
+%\graphicspath{{../foundations/}}
+
+
 \chapter{Human Factors for X} \label{ch:HumanFactors}
 \subimport{../foundations/}{human_factors_chapter}
 
 \chapter{Previous Studies of X} \label{ch:HighlightingStudies}
-\subimport{../foundations/}{hl_studies_chapter}
+\subimport{../foundations/}{prior_studies_chapter}
 
 \chapter{A New Framework} \label{ch:DesignFramework}
 \subimport{../foundations/}{design_framework_chapter}
 
 \chapter{Summary of Foundations} \label{ch:FoundationsSummary}
 \subimport{../foundations/}{foundations_summary_chapter}
+
+
 
 \part{Methods, Analyses, and Studies} %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \label{Part2:MethodsStudies}
