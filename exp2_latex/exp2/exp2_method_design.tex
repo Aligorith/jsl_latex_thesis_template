@@ -1,0 +1,61 @@
+% Exp2 Design
+\unfinishedTxt{NOTE: The below contents are just placeholders, included as an example for how the styling code can be assembled}
+
+A $ 4 \times 2 \times 3 \times 2 \times 2 $ within-subjects design was used with the following factors:
+\begin{eqnarray*}
+\mbox{Highlight Type} & \in & \lbrace \mbox{Colour (\textit{C}), Pulse (\textit{P}), Shake (\textit{S}), Shooting Star (\textit{SS})} \rbrace \\
+\mbox{Highlight Strength} & \in & \lbrace \mbox{Low, High} \rbrace \\
+\mbox{Pattern} & \in & \lbrace \mbox{Notice (\expFactor{N}), Distract (\expFactor{D}), Notice + Distract (\expFactor{ND})} \rbrace \\
+\mbox{Grid Size} & \in & \lbrace \mbox{16, 64} \rbrace \\
+\mbox{Distance} & \in & \lbrace \mbox{r1, r3} \rbrace \\
+\end{eqnarray*}
+
+
+The \expFactor{Highlight Strength (HS)} and \expFactor{Pattern} factors were not considered the Control condition, as all levels of \expFactor{HS} and \expFactor{Pattern} are identical when no highlights are present. 
+
+
+Table~\ref{tab:Exp2:ConditionsTable} shows a summary of what conditions were run, with which factors fully-crossed together, and what levels of those factors were used. There were initially 153 conditions (not including the 10 training tasks).
+\begin{table*}[ht]
+	\centering
+	\begin{tabular}{|l|c||c|c|c||c||r|}
+		\hline 
+		\textbf{Grid Size} & \textbf{Distance} & \textbf{HL Type} & 
+		\textbf{HL Strength} & \textbf{Pattern} & \textbf{Repetitions} & \textbf{Total} \\
+		\hline
+		% HL 64
+			$64$ & 
+			$\lbrace r1, r3 \rbrace$ &
+			$\lbrace C, P, S, SS \rbrace $ & 
+			$\lbrace Low, High \rbrace $ & 
+			$\lbrace N, D, ND \rbrace$ &
+			2 & 96 \\
+		% HL 16
+			$16$ & 
+			$\lbrace r1 \rbrace$ &
+			$\lbrace C, P, S, SS \rbrace $ & 
+			$\lbrace Low, High \rbrace $ & 
+			$\lbrace N, D, ND \rbrace$ &
+			2 & 48 \\
+		
+		\hline 
+		
+		% C 64
+			$64$ & 
+			$\lbrace r1, r3 \rbrace$ &
+			$ N/A $ & 
+			$ N/A $ & 
+			$ Control $ &
+			3 & 6 \\
+		% C 16
+			$16$ & 
+			$\lbrace r1 \rbrace$ &
+			$ N/A $ & 
+			$ N/A $ & 
+			$ Control $ &
+			3 & 3 \\
+		\hline
+	\end{tabular}
+
+\caption{Summary of the conditions that were performed, and the levels of each factor used in each for each of those cells} 
+\label{tab:Exp2:ConditionsTable}
+\end{table*}
