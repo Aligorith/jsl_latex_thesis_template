@@ -12,12 +12,12 @@ Planned TODO's:
 
 * [ ] Include Matplotlib styling code / settings for nicer graphing defaults
 
-* [ ] Set up dummy files for all the other sections / chapters linked from
+* [x] Set up dummy files for all the other sections / chapters linked from
   the template, so that it can compile out of the box. (This includes
   some dummy examples for the appendices)
   
   * [x] Stubs for chapters / etc.
-  * [ ] Stubs for appendix includes
+  * [x] Stubs for appendix includes
   
 
 * [x] Release the source files for PCCH-style diagrams as a HCI researcher 
