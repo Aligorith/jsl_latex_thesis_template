@@ -26,6 +26,11 @@ but only a few remanants of that remain in a few places today.
 > **Disclaimer**:
 > This was only ever tested to work via pdfLaTeX on Windows (via MikTeX 2.9 or older?).
 > Your mileage with other distros / OS's may vary.
+>
+> Also note that this is only a *potential suggestion* for how you might go about
+> structuring a dissertation. While some parts are more applicable than others,
+> many of the pre-filled headings + supporting files are generalised versions of
+> ones that applied to one specific thesis in Human-Computer Interaction.
 
 **Main Points**:
 * The "thesis/" folder contains the main entrypoint. Individual parts and

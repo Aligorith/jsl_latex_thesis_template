@@ -15,7 +15,11 @@ Planned TODO's:
 * [ ] Set up dummy files for all the other sections / chapters linked from
   the template, so that it can compile out of the box. (This includes
   some dummy examples for the appendices)
+  
+  * [x] Stubs for chapters / etc.
+  * [ ] Stubs for appendix includes
+  
 
-* [ ] Release the source files for PCCH-style diagrams as a HCI researcher 
+* [x] Release the source files for PCCH-style diagrams as a HCI researcher 
   resource (perhaps to be done as a separate repo?). Plans for this are still TBC.
 
