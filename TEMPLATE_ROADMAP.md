@@ -10,7 +10,7 @@ Planned TODO's:
 
 * [ ] Include standard SVG diagram templates (blank + standard elements)
 
-* [ ] Include Matplotlib styling code / settings for nicer graphing defaults
+* [x] Include Matplotlib styling code / settings for nicer graphing defaults
 
 * [x] Set up dummy files for all the other sections / chapters linked from
   the template, so that it can compile out of the box. (This includes
@@ -23,3 +23,5 @@ Planned TODO's:
 * [x] Release the source files for PCCH-style diagrams as a HCI researcher 
   resource (perhaps to be done as a separate repo?). Plans for this are still TBC.
 
+* [ ] Get the code compiling on modern MixTex install, and include 
+      troubleshooting instructions
