@@ -6,7 +6,11 @@
 % allow input the "easy" way
 \usepackage[utf8]{inputenc}
 % nested imports
-\usepackage{import} 
+\usepackage{import}
+
+% Hack for import.sty (newer than the 2013/2014 MikTeX version)
+% https://tex.stackexchange.com/a/531553
+\makeatletter \let\import@path@fix\@firstofone \makeatother
 
 % For accessing title info
 \usepackage{titling}
