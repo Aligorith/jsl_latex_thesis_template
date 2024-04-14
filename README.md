@@ -24,7 +24,8 @@ but only a few remanants of that remain in a few places today.
 ## General Usage Instructions
 
 > **Disclaimer**:
-> This was only ever tested to work via pdfLaTeX on Windows (via MikTeX 2.9 or older?).
+> This was only ever tested to work via pdfLaTeX on Windows (originally only for the
+> MikTex version from September 2013 / Early 2014 onwards, and MikTex 24.1 as of April 2024).
 > Your mileage with other distros / OS's may vary.
 >
 > Also note that this is only a *potential suggestion* for how you might go about
